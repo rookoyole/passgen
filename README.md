@@ -70,7 +70,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](assets/images/screenshot.png)
 <br />
-The purpose of this project was to create a password generator for websites, logins, and anything else requiring a unique password.
+The purpose of this project was to create a random password generator for websites, logins, and anything else requiring a unique password.
 
 Features:
 * Selectable length: 8 to 128 Characters
