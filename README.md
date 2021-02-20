@@ -69,8 +69,13 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](assets/images/screenshot.png)
+<br />
+The purpose of this project was to create a password generator for websites, logins, and anything else requiring a unique password.
 
-The purpose of this project was to create a personalized, attractive, constently evolving collection of my work. With this in mind, I added multiple "Future Work" flex cards to easily add new projects as I create them.
+Features:
+* Selectable length: 8 to 128 Characters
+* Selectable character types: Uppercase, Lowercase, Numbers, Special characters (as defined by owasp.org)
+* Valition check of input: Empty/Null, Numerical Only, Length
 
 <!-- PROJECT LINKS -->
 ## Project Links
