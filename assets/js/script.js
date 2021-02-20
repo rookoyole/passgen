@@ -6,12 +6,14 @@ function generatePassword() {
   //password criteria are shown in prompts
   //length prompt 8 chars to 128 chars
   var passLength = window.prompt('How many characters should the password be?\nMin = 8\nMax = 128');
- 
+ console.log(passLength);
   //input validated for empty string, only numbers and length
   // Conditional Recursive Function Call
-  if (passLength === "" || passLength === null) {
+  if (passLength === "") {
     window.alert("Answer cannot be blank! Please try again.");
     return generatePassword();
+  } else if (passLength === null) {
+    return "Your Secure Password";
   } else if (!Number(passLength)) {
     window.alert("Please enter a number! Please try again.");
     return generatePassword();
@@ -65,7 +67,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
