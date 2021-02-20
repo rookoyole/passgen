@@ -75,7 +75,7 @@ The purpose of this project was to create a random password generator for websit
 Features:
 * Selectable length: 8 to 128 Characters
 * Selectable character types: Uppercase, Lowercase, Numbers, Special characters (as defined by owasp.org)
-* Valition check of input: Empty/Null, Numerical Only, Length
+* Validation check of input: Empty/Null, Numerical Only, Length
 
 <!-- PROJECT LINKS -->
 ## Project Links
