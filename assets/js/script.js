@@ -6,17 +6,20 @@ function generatePassword() {
   //password criteria are shown in prompts
   //length prompt 8 chars to 128 chars
   var passLength = window.prompt('How many characters should the password be?\nMin = 8\nMax = 128');
-  //input validated for empty string and length
+ 
+  //input validated for empty string, only numbers and length
   // Conditional Recursive Function Call
   if (passLength === "" || passLength === null) {
     window.alert("Answer cannot be blank! Please try again.");
+    return generatePassword();
+  } else if (!Number(passLength)) {
+    window.alert("Please enter a number! Please try again.");
     return generatePassword();
   } else if ( passLength < 8 || passLength > 128) {
     window.alert("Password must be between 8 and 128 characters! Please try again.");
     return generatePassword();
   }
   
-  var pass = ''; 
   //prompt for char types: lowercase, uppercase, numeric, and/or special characters
   var passLower = window.confirm('Would you like to include lowercase letters?');
   var strLower = 'abcdefghijklmnopqrstuvwxyz'; 
@@ -27,12 +30,12 @@ function generatePassword() {
   var passSpec = window.confirm('Would you like to include special letters?');
   var strSpec = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
-  var strPass = '';
   //check to see if at least one type selected
   if(!(passLower || passUpper || passNumb || passSpec)) {
     window.alert("Must choose at least one type! Please try again.");
   }
 
+  var strPass = '';
   //add chosen type character set to total chararacters for password generation
   if (passLower) {
     strPass += strLower;
@@ -47,6 +50,7 @@ function generatePassword() {
     strPass += strSpec;
   }
 
+  var pass = ''; 
   //Add random characters from chosen set of characters to each array element based on chosen length
   for (i = 1; i <= passLength; i++) { 
       var char = Math.floor(Math.random() * strPass.length + 1);
