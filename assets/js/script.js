@@ -2,12 +2,12 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-//when button is clicked, prompts come up
-//password criteria are shown in prompts
-//length prompt 8 chars to 128 chars
-var passLength = window.prompt('How many characters should the password be?\nMin = 8\nMax = 128');
-//input validated for empty string and length
-// Conditional Recursive Function Call
+  //when button is clicked, prompts come up
+  //password criteria are shown in prompts
+  //length prompt 8 chars to 128 chars
+  var passLength = window.prompt('How many characters should the password be?\nMin = 8\nMax = 128');
+  //input validated for empty string and length
+  // Conditional Recursive Function Call
   if (passLength === "" || passLength === null) {
     window.alert("Answer cannot be blank! Please try again.");
     return generatePassword();
@@ -16,16 +16,43 @@ var passLength = window.prompt('How many characters should the password be?\nMin
     return generatePassword();
   }
   
+  var pass = ''; 
   //prompt for char types: lowercase, uppercase, numeric, and/or special characters
   var passLower = window.confirm('Would you like to include lowercase letters?');
+  var strLower = 'abcdefghijklmnopqrstuvwxyz'; 
   var passUpper = window.confirm('Would you like to include uppercase letters?');
+  var strUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
   var passNumb = window.confirm('Would you like to include numbers?');
+  var strNumb = '0123456789'; 
   var passSpec = window.confirm('Would you like to include special letters?');
+  var strSpec = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
+  var strPass = '';
   //check to see if at least one type selected
   if(!(passLower || passUpper || passNumb || passSpec)) {
     window.alert("Must choose at least one type! Please try again.");
   }
+
+  //add chosen type character set to total chararacters for password generation
+  if (passLower) {
+    strPass += strLower;
+  }
+  if (passUpper) {
+    strPass += strUpper;
+  }
+  if (passNumb) {
+    strPass += strNumb;
+  }
+  if (passSpec) {
+    strPass += strSpec;
+  }
+
+  //Add random characters from chosen set of characters to each array element based on chosen length
+  for (i = 1; i <= passLength; i++) { 
+      var char = Math.floor(Math.random() * strPass.length + 1);
+      pass += strPass.charAt(char);
+  }
+  return pass;
 }
 
 // Write password to the #password input
@@ -39,5 +66,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//after all prompts, write password to page
